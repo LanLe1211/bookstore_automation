@@ -13,3 +13,4 @@ reports: #New
     files: #Store all of the files
       - '**/*'
     base-directory: 'target/surefire-reports'
+    file-format: TESTNGXML
