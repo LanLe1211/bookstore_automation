@@ -9,8 +9,8 @@ import io.cucumber.testng.CucumberOptions;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
 
 @CucumberOptions(
-	features = "src/test/resources/OrderingFeatures", 
-	glue = {"com/cucumberFramework/stepDefinitions" }, 
+	features = "src/test/resources/OnlineBookstoreFeatures", 
+	glue = {"vn/edu/funix/lanltfx01326/bookstoreautomation/stepDefinitions" }, 
 	plugin = { 
 		"pretty",
 		"html:target/cucumber-reports/cucumber-pretty/report.html",

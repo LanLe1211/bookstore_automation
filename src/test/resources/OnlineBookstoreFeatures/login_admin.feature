@@ -10,7 +10,7 @@ Scenario Outline: Login to admin with credentials
 	Examples:
 	| url 				        							|username 	|password			|message		 |
 	|http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/|adm				|adm 					|Invalid username or password.|
-	|http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/|admin	|admin	| validation succeeded     
+	|http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/|admin	|admin	| Validation succeeded.|
 	|http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/|admin				| 					|Invalid username or password.|
 	|http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/|				|adm 					|Invalid username or password.|
 

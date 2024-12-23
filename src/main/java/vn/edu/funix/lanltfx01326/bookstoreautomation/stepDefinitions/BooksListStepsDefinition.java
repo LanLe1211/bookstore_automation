@@ -28,17 +28,19 @@ public class BooksListStepsDefinition extends TestBase {
 	private HomePage homePage = new HomePage(driver);
 	
 	@Given("User is on bookstore homepage {string}")
-	public void user_is_logged_in() {
-		WebDriver driver = this.getCurrentWebDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
-	}
-	@When("User is on bookstore homepage {string}")
-	public void user_is_on_hrm_login_page(String string) {
-		WebDriver driver = this.getCurrentWebDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	public void user_is_on_home_page(String string) {
+		WebDriver driver = getCurrentWebDriver();
 		driver.get(string);
+		waitHelper.WaitForElementLocatorVisible(homePage.getTitleLocator(), 10, 100);
+
 	}
+	
+//	@When("User is on bookstore homepage {string}")
+//	public void user_is_on_home_page(String string) {
+//		WebDriver driver = getCurrentWebDriver();
+//		driver.get(string);
+//		waitHelper.WaitForElementLocatorVisible(homePage.getTitleLocator(), 10, 100);
+//	}
 	
 	@Then("I verify the HTML table contains the following values")
     public void i_verify_the_html_table_contains_books(DataTable dataTable) {
