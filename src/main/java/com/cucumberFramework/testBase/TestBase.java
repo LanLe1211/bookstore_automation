@@ -18,24 +18,27 @@ public class TestBase {
 	public static void initDriverForBrowser(String browser) {
 		if (System.getProperty("os.name").toLowerCase().contains(OS.LINUX.name().toLowerCase())) {
 			if (browser.equalsIgnoreCase(Browsers.CHROME.name())) {
-				//System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+				// System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 				ChromeOptions options = new ChromeOptions();
-				options.addArguments("--no-sandbox");
-		        options.addArguments("--disable-dev-shm-usage");
+				options.addArguments("--no-sandbox", "--disable-extensions", "--disable-dev-shm-usage", "--headless",
+						"start-maximized");
 				driver = new ChromeDriver(options);
 
 			} else if (browser.equalsIgnoreCase(Browsers.FIREFOX.name())) {
-				//System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver");
+				// System.setProperty("webdriver.gecko.driver",
+				// "src/test/resources/drivers/geckodriver");
 				driver = new FirefoxDriver();
 			}
 
 		} else if (System.getProperty("os.name").toLowerCase().contains(OS.MAC.name().toLowerCase())) {
 			if (browser.equalsIgnoreCase(Browsers.CHROME.name())) {
-				System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver-mac-x64/chromedriver");
+				System.setProperty("webdriver.chrome.driver",
+						"src/main/resources/drivers/chromedriver-mac-x64/chromedriver");
 				driver = new ChromeDriver();
 
 			} else if (browser.equalsIgnoreCase(Browsers.FIREFOX.name())) {
-				System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/geckodriver-macos/geckodriver");
+				System.setProperty("webdriver.gecko.driver",
+						"src/main/resources/drivers/geckodriver-macos/geckodriver");
 				driver = new FirefoxDriver();
 			}
 		}
@@ -50,5 +53,5 @@ public class TestBase {
 	public static WaitHelper getWaitHelper() {
 		return waitHelper;
 	}
-	
+
 }
