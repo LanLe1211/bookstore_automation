@@ -1,20 +1,19 @@
 package com.cucumberFramework.stepDefinitions;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
 import com.cucumberFramework.enums.Browsers;
 import com.cucumberFramework.testBase.TestBase;
 
 public class ServiceHooks {
-	TestBase testBase;
-	@BeforeMethod
+	@BeforeSuite
 	public void initializeTest() {
-		testBase = new TestBase();
-		testBase.initDriverForBrowser(Browsers.CHROME.name());
+		TestBase.initDriverForBrowser(Browsers.CHROME.name());
 	}
 	
-	@AfterMethod
+	@AfterSuite
 	public void endTest() {   
-		testBase.getCurrentWebDriver().quit();
+		TestBase.getCurrentWebDriver().quit();
 	}
 }

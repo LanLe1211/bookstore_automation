@@ -1,5 +1,6 @@
 package com.cucumberFramework.pageObjects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -17,12 +18,12 @@ public class HomePage {
 	@FindBy(xpath = "//form[@action='/search']/button[@type=\"submit\"]")
 	WebElement searchButton;
 
-	@FindBy(xpath = "//div[contains(@class, 'card text')]")
-	List<WebElement> displayList;
+	@FindBy(xpath = "//div[contains(@class, 'book_container')]")
+	List<WebElement> bookContainerList;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(this.driver, this);
 	}
 
 	public void enterSearchText(String term) {
@@ -33,11 +34,19 @@ public class HomePage {
 		this.searchButton.click();
 	}
 	
-	public List<WebElement> getDisplayItems() {
-		return displayList;
+	public List<BookContainer> getBookContainerList() {
+		List<BookContainer> bookContainer = new ArrayList<>();
+		for (WebElement element: bookContainerList) {
+			bookContainer.add(new BookContainer(element));
+		}
+		return bookContainer;
 	}
 	
 	public String getTitleLocator() {
 		return "//a[@class=\"navbar-brand\"]";
+	}
+	
+	public WebElement getBookTitleFromBookContainer(WebElement bookContainer) {
+		return null;
 	}
 }

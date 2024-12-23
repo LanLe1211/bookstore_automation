@@ -17,14 +17,14 @@ public class TestBase {
 
 	protected static WaitHelper waitHelper;
 
-	public void initDriverForBrowser(String browser) {
+	public static void initDriverForBrowser(String browser) {
 		if (System.getProperty("os.name").toLowerCase().contains(OS.LINUX.name().toLowerCase())) {
 			if (browser.equalsIgnoreCase(Browsers.CHROME.name())) {
-				System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver-linux64");
+				//System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 				driver = new ChromeDriver();
 
 			} else if (browser.equalsIgnoreCase(Browsers.FIREFOX.name())) {
-				System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver");
+				//System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver");
 				driver = new FirefoxDriver();
 			}
 
@@ -42,11 +42,11 @@ public class TestBase {
 		waitHelper = new WaitHelper(driver);
 	}
 
-	public WebDriver getCurrentWebDriver() {
+	public static WebDriver getCurrentWebDriver() {
 		return driver;
 	}
 
-	public WaitHelper getWaitHelper() {
+	public static WaitHelper getWaitHelper() {
 		return waitHelper;
 	}
 	
