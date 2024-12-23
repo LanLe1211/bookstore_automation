@@ -34,7 +34,8 @@ private static Logger log = LoggerHelper.getLogger(AssertionHelper.class);
 		Assert.assertFalse(false,message);
 	}
 	
-	public static  void verifyTrue(boolean status) {
+
+	public static void verifyTrue(boolean status) {
 		Assert.assertTrue(status);
 	}
 	
