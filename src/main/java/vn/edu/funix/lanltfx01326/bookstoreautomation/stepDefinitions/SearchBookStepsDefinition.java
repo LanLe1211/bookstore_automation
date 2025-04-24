@@ -25,6 +25,7 @@ public class SearchBookStepsDefinition extends TestBase {
 
 	@Then("I see search result contain {string}")
 	public void i_see_search_result_contain_string(String string) {
+		
 		List<BookContainer> bookContainerList = homePage.getBookContainerList();
 		assert (bookContainerList.size() == 1);
 		BookContainer searchResult = bookContainerList.get(0);
