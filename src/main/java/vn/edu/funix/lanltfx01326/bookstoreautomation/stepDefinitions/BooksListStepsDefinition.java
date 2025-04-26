@@ -76,13 +76,13 @@ public class BooksListStepsDefinition extends TestBase {
             }
         }
 	}
-	@Before
-	public void initializeTest() {
-		this.initDriverForBrowser(Browsers.CHROME.name());
-	}
-	
-	@After
-	public void endTest() {   
-		this.getCurrentWebDriver().quit();
-	}
+//	@Before
+//	public void initializeTest() {
+//		this.initDriverForBrowser(Browsers.CHROME.name());
+//	}
+//	
+//	@After
+//	public void endTest() {   
+//		this.getCurrentWebDriver().quit();
+//	}
 }

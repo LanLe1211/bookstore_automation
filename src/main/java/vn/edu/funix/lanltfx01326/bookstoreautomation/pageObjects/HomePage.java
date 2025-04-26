@@ -16,7 +16,6 @@ import vn.edu.funix.lanltfx01326.bookstoreautomation.helper.wait.WaitHelper;
 public class HomePage {
 
 	private WebDriver driver;
-	private WaitHelper waitHelper;
 	
 	@FindBy(xpath = "//input[@name=\"term\"]")
 	WebElement searchInput;
@@ -26,13 +25,10 @@ public class HomePage {
 	
 	
 	private String bookContainerXpath = "//div[contains(@class, 'book_container')]";
-//	@FindBy(xpath = "//div[contains(@class, 'book_container')]")
-//	List<WebElement> bookContainerList;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(this.driver, this);
-		waitHelper = new WaitHelper(driver);
 	}
 
 	public void enterSearchText(String term) {
@@ -46,7 +42,7 @@ public class HomePage {
 	
 	public List<BookContainer> getBookContainerList() {
 		List<BookContainer> bookContainer = new ArrayList<>();
-		List<WebElement> bookContainerList = driver.findElements(By.xpath(bookContainerXpath));
+		List<WebElement> bookContainerList = driver.findElements(By.xpath(getBookContainerLocator()));
 		for (WebElement element: bookContainerList) {
 			bookContainer.add(new BookContainer(element));
 		}
@@ -55,6 +51,10 @@ public class HomePage {
 	
 	public String getTitleLocator() {
 		return "//a[@class=\"navbar-brand\"]";
+	}
+	
+	public String getBookContainerLocator() {
+		return this.bookContainerXpath;
 	}
 	
 	

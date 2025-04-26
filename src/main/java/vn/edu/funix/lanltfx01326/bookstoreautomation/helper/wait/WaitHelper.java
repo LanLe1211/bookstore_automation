@@ -36,9 +36,9 @@ public class WaitHelper {
 	 * @param timeout
 	 * @param unit
 	 */
-	public void setImplicitWait(long timeout, TimeUnit unit) {
-		log.info("Implicit Wait has been set to: " + timeout);
-		driver.manage().timeouts().implicitlyWait(timeout, unit);
+	public void setImplicitWait(Duration duration) {
+		log.info("Implicit Wait has been set to: " + duration);
+		driver.manage().timeouts().implicitlyWait(duration);
 	}
 
 	/**

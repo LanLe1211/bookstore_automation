@@ -1,12 +1,11 @@
 package vn.edu.funix.lanltfx01326.bookstoreautomation.stepDefinitions;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.BookContainer;
@@ -24,8 +23,8 @@ public class SearchBookStepsDefinition extends TestBase {
 	}
 
 	@Then("I see search result contain {string}")
-	public void i_see_search_result_contain_string(String string) {
-		
+	public void i_see_search_result_contain_string(String string) throws InterruptedException {
+		waitHelper.setImplicitWait(Duration.ofSeconds(2));
 		List<BookContainer> bookContainerList = homePage.getBookContainerList();
 		assert (bookContainerList.size() == 1);
 		BookContainer searchResult = bookContainerList.get(0);
