@@ -23,7 +23,6 @@ public class HomePage {
 	@FindBy(xpath = "//form[@action='/search']/button[@type=\"submit\"]")
 	WebElement searchButton;
 	
-	
 	private String bookContainerXpath = "//div[contains(@class, 'book_container')]";
 
 	public HomePage(WebDriver driver) {

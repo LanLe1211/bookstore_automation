@@ -19,6 +19,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.enums.Browsers;
+import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.BookContainer;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.BookDetailsPage;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.HomePage;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
@@ -35,12 +36,13 @@ public class BooksListStepsDefinition extends TestBase {
 
 	}
 	
-//	@When("User is on bookstore homepage {string}")
-//	public void user_is_on_home_page(String string) {
-//		WebDriver driver = getCurrentWebDriver();
-//		driver.get(string);
-//		waitHelper.WaitForElementLocatorVisible(homePage.getTitleLocator(), 10, 100);
-//	}
+	@Then("homepage title is {string}")
+	public void home_page_title_is(String string) {
+		WebDriver driver = getCurrentWebDriver();
+		waitHelper.setImplicitWait(Duration.ofSeconds(2));
+		WebElement pageTitle = driver.findElement(By.xpath(homePage.getTitleLocator()));
+		Assert.assertEquals(string, pageTitle.getText()); 
+	}
 	
 	@Then("I verify the HTML table contains the following values")
     public void i_verify_the_html_table_contains_books(DataTable dataTable) {
@@ -76,13 +78,5 @@ public class BooksListStepsDefinition extends TestBase {
             }
         }
 	}
-//	@Before
-//	public void initializeTest() {
-//		this.initDriverForBrowser(Browsers.CHROME.name());
-//	}
-//	
-//	@After
-//	public void endTest() {   
-//		this.getCurrentWebDriver().quit();
-//	}
+
 }
