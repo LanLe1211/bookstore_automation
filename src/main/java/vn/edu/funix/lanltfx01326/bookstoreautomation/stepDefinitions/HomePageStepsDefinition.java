@@ -1,39 +1,38 @@
 package vn.edu.funix.lanltfx01326.bookstoreautomation.stepDefinitions;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import vn.edu.funix.lanltfx01326.bookstoreautomation.enums.Browsers;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.BookContainer;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.BookDetailsPage;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.HomePage;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
 
-public class BooksListStepsDefinition extends TestBase {
-	private static Logger logger = LogManager.getLogger(BooksListStepsDefinition.class);
-	private HomePage homePage = new HomePage(driver);
+public class HomePageStepsDefinition extends TestBase {
+	private static Logger logger = LogManager.getLogger(HomePageStepsDefinition.class);
+	private HomePage homePage;
+	//UI check
 	
+	
+	//BookList
 	@Given("User is on bookstore homepage {string}")
 	public void user_is_on_home_page(String string) {
 		WebDriver driver = getCurrentWebDriver();
 		driver.get(string);
+		homePage = new HomePage(driver);
 		waitHelper.WaitForElementLocatorVisible(homePage.getTitleLocator(), 10, 100);
-
 	}
 	
 	@Then("homepage title is {string}")
@@ -78,5 +77,36 @@ public class BooksListStepsDefinition extends TestBase {
             }
         }
 	}
+	
+	
+	//Search books
+	@When("I enter keyword as {string}")
+	public void i_enter_keyword_as(String string) {
+		homePage.enterSearchText(string);
+		homePage.submitSearch();
+	}
+	
+	@Then ("I see the number of results as {int}")
+	public void i_see_the_number_of_results_as(int resultcount) {
+		waitHelper.setImplicitWait(Duration.ofSeconds(2));
+		List<BookContainer> bookContainerList = homePage.getBookContainerList();
+		Assert.assertEquals(bookContainerList.size(), resultcount);
+	}
 
+	@Then("I see search result contain {string}")
+	public void i_see_search_result_contain_string(String titleListString) throws InterruptedException {
+		waitHelper.setImplicitWait(Duration.ofSeconds(2));
+		List<String> titleList = Arrays.asList(titleListString.split("\\s*,\\s*"));
+		List<BookContainer> bookContainerList = homePage.getBookContainerList();
+		for(BookContainer book:bookContainerList) {
+			Assert.assertListContainsObject(titleList, book.getBookTitle(), null);
+		}
+	}
+	
+	// Navigate link
+	@When("user click on the admin link")
+	public void user_click_on_the_admin_link() {
+		homePage.navigateToAdminPage();
+		waitHelper.setImplicitWait(Duration.ofSeconds(10));
+	}
 }

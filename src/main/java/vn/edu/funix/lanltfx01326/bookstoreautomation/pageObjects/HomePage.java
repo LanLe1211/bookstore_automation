@@ -23,6 +23,9 @@ public class HomePage {
 	@FindBy(xpath = "//form[@action='/search']/button[@type=\"submit\"]")
 	WebElement searchButton;
 	
+	@FindBy(id="admin_nav_link")
+	WebElement adminButton;
+	
 	private String bookContainerXpath = "//div[contains(@class, 'book_container')]";
 
 	public HomePage(WebDriver driver) {
@@ -37,6 +40,10 @@ public class HomePage {
 	public void submitSearch() {
 		this.searchButton.click();
 		
+	}
+	
+	public void navigateToAdminPage() {
+		this.adminButton.click();
 	}
 	
 	public List<BookContainer> getBookContainerList() {

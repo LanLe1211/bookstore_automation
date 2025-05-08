@@ -1,5 +1,6 @@
 package vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,10 +10,6 @@ import vn.edu.funix.lanltfx01326.bookstoreautomation.helper.wait.WaitHelper;
 
 public class AdminLoginPage {
 	private WebDriver driver;
-	WaitHelper waitHelper;
-	
-	@FindBy(id="admin_nav_link")
-	public WebElement admin_nav_link; 
 
 	@FindBy(id = "username")
 	 WebElement username;
@@ -23,11 +20,12 @@ public class AdminLoginPage {
 	@FindBy(id = "login_submit")
 	WebElement loginButton;
 	
+	private String validatorMessageLocator="//form[@action='/login']//em";
+	
 	
 	public AdminLoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		//waitHelper.waitForElement(aviationId, 60); 
 	}
 
 	public void enterUsername(String username) {
@@ -40,5 +38,10 @@ public class AdminLoginPage {
 	
 	public void clickLoginButton() {
 		loginButton.click();
-	}	
+	}
+	
+	public String getMessage() {	
+		WebElement messageElement = driver.findElement(By.xpath(validatorMessageLocator));	
+		return messageElement.getText();		
+	}
 }
