@@ -9,8 +9,8 @@ phases:
       - echo Build started on `date`
       - mvn test
 reports: #New
-  SurefireReports: # CodeBuild will create a report group called "SurefireReports".
+  CucumberTestReport: # CodeBuild will create a report group called "SurefireReports".
     files: #Store all of the files
-      - '**/testng-results.xml'
-    base-directory: 'target/surefire-reports'
-    file-format: TESTNGXML
+      - '**/CucumberTestReport.json'
+    base-directory: 'target/cucumber-reports'
+    file-format: CUCUMBERJSON
