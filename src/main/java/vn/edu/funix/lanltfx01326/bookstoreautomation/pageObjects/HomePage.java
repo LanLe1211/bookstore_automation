@@ -16,16 +16,16 @@ import vn.edu.funix.lanltfx01326.bookstoreautomation.helper.wait.WaitHelper;
 public class HomePage {
 
 	private WebDriver driver;
-	
+
 	@FindBy(xpath = "//input[@name=\"term\"]")
 	WebElement searchInput;
 
 	@FindBy(xpath = "//form[@action='/search']/button[@type=\"submit\"]")
 	WebElement searchButton;
-	
-	@FindBy(id="admin_nav_link")
+
+	@FindBy(id = "admin_nav_link")
 	WebElement adminButton;
-	
+
 	private String bookContainerXpath = "//div[contains(@class, 'book_container')]";
 
 	public HomePage(WebDriver driver) {
@@ -39,32 +39,44 @@ public class HomePage {
 
 	public void submitSearch() {
 		this.searchButton.click();
-		
+
 	}
-	
+
 	public void navigateToAdminPage() {
 		this.adminButton.click();
 	}
-	
-	public List<BookContainer> getBookContainerList() {
-		List<BookContainer> bookContainer = new ArrayList<>();
+
+	public List<HomePageBookContainer> getBookContainerList() {
+		List<HomePageBookContainer> homePageBookContainer = new ArrayList<>();
 		List<WebElement> bookContainerList = driver.findElements(By.xpath(getBookContainerLocator()));
-		for (WebElement element: bookContainerList) {
-			bookContainer.add(new BookContainer(element));
+		for (WebElement element : bookContainerList) {
+			homePageBookContainer.add(new HomePageBookContainer(element));
 		}
-		return bookContainer;
+		return homePageBookContainer;
 	}
-	
+
 	public String getTitleLocator() {
 		return "//a[@class=\"navbar-brand\"]";
 	}
-	
+
 	public String getBookContainerLocator() {
 		return this.bookContainerXpath;
 	}
-	
-	
+
 	public WebElement getBookTitleFromBookContainer(WebElement bookContainer) {
 		return null;
+	}
+
+	public HomePageBookContainer getBookContainerByBookTitle(String bookTitle) {
+		String findByBookTitleXpath = "//div[contains(@class, 'book_container') and .//h5[contains(@class, 'book_title') and normalize-space() = '"
+				+ bookTitle + "']]";
+
+		WebElement bookContainerWebElement = driver.findElement(By.xpath(findByBookTitleXpath));
+		if (bookContainerWebElement != null) {
+			HomePageBookContainer homePageBookContainer = new HomePageBookContainer(bookContainerWebElement);
+			return homePageBookContainer;
+		} else {
+			return null;
+		}
 	}
 }

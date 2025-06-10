@@ -15,7 +15,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.BookContainer;
+import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.HomePageBookContainer;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.BookDetailsPage;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.HomePage;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
@@ -89,7 +89,7 @@ public class HomePageStepsDefinition extends TestBase {
 	@Then ("I see the number of results as {int}")
 	public void i_see_the_number_of_results_as(int resultcount) {
 		waitHelper.setImplicitWait(Duration.ofSeconds(2));
-		List<BookContainer> bookContainerList = homePage.getBookContainerList();
+		List<HomePageBookContainer> bookContainerList = homePage.getBookContainerList();
 		Assert.assertEquals(bookContainerList.size(), resultcount);
 	}
 
@@ -97,8 +97,8 @@ public class HomePageStepsDefinition extends TestBase {
 	public void i_see_search_result_contain_string(String titleListString) throws InterruptedException {
 		waitHelper.setImplicitWait(Duration.ofSeconds(2));
 		List<String> titleList = Arrays.asList(titleListString.split("\\s*,\\s*"));
-		List<BookContainer> bookContainerList = homePage.getBookContainerList();
-		for(BookContainer book:bookContainerList) {
+		List<HomePageBookContainer> bookContainerList = homePage.getBookContainerList();
+		for(HomePageBookContainer book:bookContainerList) {
 			Assert.assertListContainsObject(titleList, book.getBookTitle(), null);
 		}
 	}

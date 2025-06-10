@@ -42,7 +42,6 @@ public class AdminLoginSteps extends TestBase {
 	@Then("user is navigated to books details page in url as {string}")
 	public void i_see_BookDetails_page(String url) throws Throwable {
 		waitHelper.setImplicitWait(Duration.ofSeconds(5));
-
 		String currentUrl = driver.getCurrentUrl();
 		Assert.assertEquals(url, currentUrl);
 	}

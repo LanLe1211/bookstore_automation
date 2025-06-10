@@ -26,5 +26,5 @@ Scenario Outline: Login to admin page with correct credentials
 	Then user is navigated to books details page in url as "<destinationurl>"
 	
 Examples:
-	| admin_login_url 				        																													|username 	|password			|destinationurl|
+	|admin_login_url 				        																													|username 	|password			|destinationurl|
 	|http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/login			|admin			|admin				|http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/book|
