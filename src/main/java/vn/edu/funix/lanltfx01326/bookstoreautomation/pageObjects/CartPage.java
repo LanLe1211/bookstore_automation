@@ -8,9 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import vn.edu.funix.lanltfx01326.bookstoreautomation.helper.wait.WaitHelper;
+
 public class CartPage {
 
 	private WebDriver driver;
+	private WaitHelper waitHelper;
 
 	@FindBy(id = "checkout_submit")
 	WebElement cart_checkoutButton;
@@ -20,9 +23,17 @@ public class CartPage {
 
 	@FindBy(xpath = "//div[contains(@class, 'book_container')]")
 	List<WebElement> displayList;
+	
+	@FindBy(id="home_nav_link")
+	WebElement onlineBookStoreButton;
+	
+	@FindBy(id="checkout_delete_all")
+	WebElement deleteAllCartButton;
+	
 
 	public CartPage(WebDriver driver) {
 		this.driver = driver;
+		this.waitHelper = new WaitHelper(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -39,7 +50,7 @@ public class CartPage {
 	}
 
 	public CartPageBookContainer getCartPageBookContainerByBookTitle(String bookTitle) {
-		String findByBookTitleXpath = "//div[contains(@class, 'book_container') and .//h5[contains(@class, 'book_title') and normalize-space() = '"
+		String findByBookTitleXpath = "//div[contains(@class, 'book_container') and .//h5[contains(@class, 'book_name') and normalize-space() = '"
 				+ bookTitle + "']]";
 
 		WebElement cartPageBookContainerWebElement = driver.findElement(By.xpath(findByBookTitleXpath));
@@ -52,7 +63,18 @@ public class CartPage {
 	}
 	
 	public String getEmptyCartMsg() {
-		return null;
-		
+		waitHelper.WaitForElementVisibleById("cart_empty_message", 5, 100);
+		WebElement basketEmptyElement = driver.findElement(By.id("cart_empty_message"));
+		return basketEmptyElement.getText();	
 	}
+	
+	public void clickOnlineBookStoreButton() {
+		this.onlineBookStoreButton.click();
+	}
+	
+	public void clickOnDeleteAllCartButton() {
+		this.deleteAllCartButton.click();
+	}
+	
+	
 }

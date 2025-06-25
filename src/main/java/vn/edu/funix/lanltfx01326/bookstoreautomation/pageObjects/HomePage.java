@@ -34,6 +34,7 @@ public class HomePage {
 	}
 
 	public void enterSearchText(String term) {
+		this.searchInput.clear();
 		this.searchInput.sendKeys(term);
 	}
 
@@ -79,4 +80,13 @@ public class HomePage {
 			return null;
 		}
 	}
+
+	public String getNoBookMessage() {
+		WebElement noBookMessageElement = driver.findElement(By.id("no_book_message"));
+		return noBookMessageElement.getText();
+	}
+	
+	
+	
+	
 }

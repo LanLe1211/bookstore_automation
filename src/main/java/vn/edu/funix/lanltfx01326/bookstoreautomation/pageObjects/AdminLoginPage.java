@@ -10,6 +10,7 @@ import vn.edu.funix.lanltfx01326.bookstoreautomation.helper.wait.WaitHelper;
 
 public class AdminLoginPage {
 	private WebDriver driver;
+	private WaitHelper waitHelper;
 
 	@FindBy(id = "username")
 	 WebElement username;
@@ -25,6 +26,7 @@ public class AdminLoginPage {
 	
 	public AdminLoginPage(WebDriver driver) {
 		this.driver = driver;
+		this.waitHelper = new WaitHelper(driver);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -40,7 +42,8 @@ public class AdminLoginPage {
 		loginButton.click();
 	}
 	
-	public String getMessage() {	
+	public String getMessage() {
+		waitHelper.WaitForElementLocatorVisible(validatorMessageLocator, 5, 100);
 		WebElement messageElement = driver.findElement(By.xpath(validatorMessageLocator));	
 		return messageElement.getText();		
 	}

@@ -11,18 +11,18 @@ public class CartPageBookContainer {
 	}
 	
 	public String getBookTitle() {
-		return bookContainerElement.findElement(By.xpath("//h5[contains(@class, 'book_title')]")).getText();
+		return bookContainerElement.findElement(By.className("book_title")).getText();
 	}
 	
 	public String getBookAuthor() {
-		return bookContainerElement.findElement(By.xpath("//*[contains(@class, 'book_author')]")).getText();
+		return bookContainerElement.findElement(By.className("book_author")).getText();
 	}
 	
 	public String getBookPrice() {
-		return bookContainerElement.findElement(By.xpath("//*[contains(@class, 'book_price')]")).getText();
+		return bookContainerElement.findElement(By.className("book_price")).getText();
 	}
 	
 	public WebElement removeFromCartButton() {
-		return bookContainerElement.findElement(By.xpath("//*[contains(@class, 'remove_from_cart')]"));
+		return bookContainerElement.findElement(By.className("remove_from_cart"));
 	}
 }

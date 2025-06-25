@@ -72,7 +72,7 @@ public class WaitHelper {
 		wait.until(ExpectedConditions.visibilityOf(element));
 		log.info("element is visible now");
 	}
-	
+
 	/**
 	 * This method will make sure element is visible
 	 * 
@@ -80,11 +80,24 @@ public class WaitHelper {
 	 * @param timeOutInSeconds
 	 * @param pollingEveryInMiliSec
 	 */
-	public void WaitForElementLocatorVisible(String xpathLocator, int timeOutInSeconds,
-			int pollingEveryInMiliSec) {
+	public void WaitForElementLocatorVisible(String xpathLocator, int timeOutInSeconds, int pollingEveryInMiliSec) {
 		log.info("waiting for :" + xpathLocator + " for :" + timeOutInSeconds + " seconds");
 		WebDriverWait wait = getWait(timeOutInSeconds, pollingEveryInMiliSec);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpathLocator)));
+		log.info("element is visible now");
+	}
+
+	/**
+	 * This method will make sure element is visible
+	 * 
+	 * @param element
+	 * @param timeOutInSeconds
+	 * @param pollingEveryInMiliSec
+	 */
+	public void WaitForElementVisibleById(String id, int timeOutInSeconds, int pollingEveryInMiliSec) {
+		log.info("waiting for :" + id + " for :" + timeOutInSeconds + " seconds");
+		WebDriverWait wait = getWait(timeOutInSeconds, pollingEveryInMiliSec);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
 		log.info("element is visible now");
 	}
 
@@ -131,55 +144,37 @@ public class WaitHelper {
 
 	/**
 	 * This method will give is fluentWait object
+	 * 
 	 * @param timeOutInSeconds
 	 * @param pollingEveryInMiliSec
 	 * @return
 	 */
 	private Wait<WebDriver> getfluentWait(int timeOutInSeconds, int pollingEveryInMiliSec) {
-		Wait<WebDriver> fWait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(timeOutInSeconds))
+		Wait<WebDriver> fWait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(timeOutInSeconds))
 				.pollingEvery(Duration.ofMillis(pollingEveryInMiliSec)).ignoring(NoSuchElementException.class);
 		return fWait;
 	}
-	
+
 	/**
 	 * 
 	 * @param element
 	 * @param timeOutInSeconds
 	 * @param pollingEveryInMiliSec
 	 */
-	public WebElement waitForElement(WebElement element, int timeOutInSeconds, int pollingEveryInMiliSec){
+	public WebElement waitForElement(WebElement element, int timeOutInSeconds, int pollingEveryInMiliSec) {
 		Wait<WebDriver> fwait = getfluentWait(timeOutInSeconds, pollingEveryInMiliSec);
 		fwait.until(ExpectedConditions.visibilityOf(element));
 		return element;
 	}
-	
-	public void pageLoadTime(long timeout, TimeUnit unit){
-		log.info("waiting for page to load for : "+ unit+ " seconds");
-		driver.manage().timeouts().pageLoadTimeout(timeout, unit);
-		log.info("page is loaded");
+
+	public void waitForUrl(String url, int timeOutInSeconds) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOutInSeconds));
+		wait.until(ExpectedConditions.urlToBe(url));
 	}
-	
-	public void waitUntilAngular5Ready(WebDriver driver) {
-		WebDriver jsWaitDriver = driver;
-		JavascriptExecutor jsExec = (JavascriptExecutor) jsWaitDriver;
-        try {
-            	 Boolean angularPageLoaded = false;
-            		while (!angularPageLoaded) {
-            			angularPageLoaded = (Boolean) jsExec.executeScript("return window.getAllAngularTestabilities().findIndex(x=>!x.isStable()) === -1");
-            			poll(1000);
-            		}
-        } catch (WebDriverException ignored) {
-        }
-    }
-	
-    private void poll(long milis) {
-        try {
-            Thread.sleep(milis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+
+	public void waitForUrlContains(String url, int timeOutInSeconds) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOutInSeconds));
+		wait.until(ExpectedConditions.urlContains(url));
+	}
 
 }
-

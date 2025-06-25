@@ -1,37 +1,39 @@
 Feature: Add to Cart
 Background: 
-    Given User is on bookstore homepage "http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com"
+    Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/"
   	
- Scenario Outline: Add more than 1 book
- When user clicks button Add To Cart the book having title as "<booktitlehomepage>"
- Then user is directed to cartpage as "<cartpageurl>"
- And book title is seen in cart page as "<booktitlecartpage>"
- When user clicks remove button of the book with title as "<booktitlecartpage>"
+ Scenario Outline: Add and delete 1 book from cart
+ When user clicks button Add To Cart the book having title as "<booktitle>"
+ Then user is directed to cartpage as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/cart"
+ And book title is seen in cart page as "<booktitle>"
+ When user clicks remove button of the book with title as "<booktitle>"
  Then user sees success message as "Your basket is currently empty."
  Examples:     
-  |booktitlehomepage      |cartpageurl                                                                    |booktitlecartpage|
-  |The Lord of the Rings  |http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/cart      |The Lord of the Rings|
-  |The Da Vinci Code      |http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/cart      |The Da Vinci Code|
+  |booktitle    |
+  |The Last Olympian  |
+  |Life of Pi      |
  
 
   	
- Scenario Outline: Add more than 1 book
- When user clicks button Add To Cart the book having title as "<booktitle1homepage>"
- Then user is directed to cartpage as "<cartpageurl>"
- And book title is seen in cart page as "<booktitle1cartpage>"
+ Scenario Outline: Add more than 1 book and delete all book from cart
+ When user clicks button Add To Cart the book having title as "<booktitle1>"
+ Then user is directed to cartpage as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/cart"
+ And book title is seen in cart page as "<booktitle1>"
  When user clicks Online Book Store textbutton
- Then user is directed back to homepage as "<homepageurl>"
- When user clicks button Add To Cart the book having title title as "<booktitle2homepage>"
- Then user is directed to cartpage as "<cartpageurl>"
- And book title is seen in cart page as "<booktitle2cartpage>"
+ Then user is directed back to homepage as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/"
+ When user clicks button Add To Cart the book having title as "<booktitle2>"
+ Then user is directed to cartpage as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/cart"
+ And book title is seen in cart page as "<booktitle2>"
+ When user clicks delete all button
+ Then user sees success message as "Your basket is currently empty."
  
    Examples:     
-  |booktitle1homepage |cartpageurl                                           |booktitle1cartpage|booktitle2homepage|booktitle2cartpage|
-  |Twilight |http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/cart |Twilight|Hannibal|Hannibal|
-  |The Da Vinci Code |http://bookstore-uat-env.eba-jmtjiqks.us-east-2.elasticbeanstalk.com/cart |The Da Vinci Code|Fifty Shades of Grey|Fifty Shades of Grey|
+  |booktitle1 |booktitle2|
+  |Twilight           |Hannibal             |
+  |The Hunger Games  |Fifty Shades of Grey |
  
 
-  	
-  	
+    
+    
 	
 	

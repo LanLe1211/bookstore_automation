@@ -9,8 +9,10 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
 
-@CucumberOptions(features = "src/test/resources/OnlineBookstoreFeatures/login_admin.feature", glue = {
-		"vn/edu/funix/lanltfx01326/bookstoreautomation/stepDefinitions" }, plugin = { "pretty",
+@CucumberOptions(
+		features = "src/test/resources/OnlineBookstoreFeatures", 
+		glue = {"vn/edu/funix/lanltfx01326/bookstoreautomation/stepDefinitions" }, 
+		plugin = { "pretty",
 				"html:target/cucumber-html-reports/report.html",
 				"json:target/cucumber-reports/CucumberTestReport.json" })
 public class TestRunner extends AbstractTestNGCucumberTests {
