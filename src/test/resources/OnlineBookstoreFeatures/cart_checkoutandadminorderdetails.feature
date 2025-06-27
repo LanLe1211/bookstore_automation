@@ -2,7 +2,7 @@ Feature: Checkout cart and check order details
 Background: 
     Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/"
 
-Scenario Outline: Check out by user when there is one book in cart and check order details by admin
+Scenario Outline: AT14A+AT14B_Check out by user when there is one book in cart and check order details by admin
  When user clicks button Add To Cart the book having title as "<title>"
  Then user is directed to cartpage as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/cart"
  When user clicks button Checkout button 

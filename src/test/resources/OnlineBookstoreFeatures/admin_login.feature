@@ -2,7 +2,7 @@ Feature: Login into admin page
   Background: 
     Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/"
 
-Scenario Outline: Login to admin page with incorrect credentials
+Scenario Outline: AT01_Login to admin page with incorrect credentials
 	When user click on the admin link
 	Then user is on login page as "<admin_login_url>"
 	And user enters the username as "<username>" 
@@ -17,7 +17,7 @@ Scenario Outline: Login to admin page with incorrect credentials
 	|http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/login			|						|adm 					|Invalid username or password.|
 
 
-Scenario Outline: Login to admin page with correct credentials
+Scenario Outline: AT02_Login to admin page with correct credentials
 	When user click on the admin link
 	Then user is on login page as "<admin_login_url>"
 	And user enters the username as "<username>" 

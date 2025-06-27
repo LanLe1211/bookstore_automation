@@ -2,7 +2,7 @@ Feature: Search books with available results
   Background: 
     Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com"
   
-  Scenario: Search for a book with keyword
+  Scenario: AT10_Search for a book with keyword having available results
     When user enters keyword as "<keyword>"
     Then user is directed to search page as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/search"
     Then user sees the number of results as <result_count>

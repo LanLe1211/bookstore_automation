@@ -2,7 +2,7 @@ Feature: Add to and Remove from cart
 Background: 
     Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/"
   	
- Scenario Outline: Add and delete 1 book from cart
+ Scenario Outline: AT12A+AT12B_Add and delete 1 book from cart
  When user clicks button Add To Cart the book having title as "<booktitle>"
  Then user is directed to cartpage as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/cart"
  And book title is seen in cart page as "<booktitle>"
@@ -15,7 +15,7 @@ Background:
  
 
   	
- Scenario Outline: Add more than 1 book and delete all book from cart
+ Scenario Outline: AT13A+AT13B_Add more than 1 book and delete all book from cart
  When user clicks button Add To Cart the book having title as "<booktitle1>"
  Then user is directed to cartpage as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/cart"
  And book title is seen in cart page as "<booktitle1>"
