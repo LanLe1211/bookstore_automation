@@ -1,4 +1,4 @@
-Feature: Add to Cart
+Feature: Add to and Remove from cart
 Background: 
     Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/"
   	

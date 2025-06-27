@@ -1,8 +1,8 @@
-Feature: logout by admin
+Feature: Logout by admin
 Background: 
     Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/"
 	
-Scenario Outline: logout by admin
+Scenario Outline: Logout by admin
 	When user click on the admin link
   Then user is on login page as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/login"
   And user enters the username as "admin" 
