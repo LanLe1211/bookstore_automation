@@ -1,8 +1,8 @@
-Feature: add new book by admin_failure case
+Feature: Add new book by admin_failure case
 Background: 
     Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/"
   
-Scenario Outline: add new book with failure
+Scenario Outline: Add new book with failure
  When user click on the admin link
   Then user is on login page as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/login"
   And user enters the username as "admin" 

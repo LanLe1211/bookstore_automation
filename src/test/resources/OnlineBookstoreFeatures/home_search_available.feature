@@ -1,4 +1,4 @@
-Feature: Search books with available result
+Feature: Search books with available results
   Background: 
     Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com"
   
