@@ -1,28 +1,22 @@
 package vn.edu.funix.lanltfx01326.bookstoreautomation.stepDefinitions;
 
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.HomePageBookContainer;
-import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.AdminPage;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.HomePage;
+import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.HomePageBookContainer;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
 
 public class HomePageStepsDefinition extends TestBase {
 	private HomePage homePage;
-	private AdminPage adminPage;
 
 	
 	@Given("User is on bookstore homepage {string}")
@@ -30,13 +24,14 @@ public class HomePageStepsDefinition extends TestBase {
 		WebDriver driver = getCurrentWebDriver();
 		driver.get(string);
 		homePage = new HomePage(driver);
-		waitHelper.WaitForElementLocatorVisible(homePage.getTitleLocator(), 10, 100);
+		waitHelper.WaitForElementVisibleById(homePage.getTitleId(), 10, 100);
 	}
 	
 	@Then("homepage title is {string}")
 	public void home_page_title_is(String string) {
 		WebDriver driver = getCurrentWebDriver();
-		WebElement pageTitle = driver.findElement(By.xpath(homePage.getTitleLocator()));
+		waitHelper.WaitForElementVisibleById(homePage.getTitleId(), 10, 100);
+		WebElement pageTitle = driver.findElement(By.id(homePage.getTitleId()));
 		Assert.assertEquals(string, pageTitle.getText()); 
 	}
 	
@@ -79,7 +74,4 @@ public class HomePageStepsDefinition extends TestBase {
 	    String actualMessage = homePage.getNoBookMessage();
 	    Assert.assertEquals(actualMessage, message);
 	}
-
-
-	
 }

@@ -11,10 +11,10 @@ Scenario Outline: AT01_Login to admin page with incorrect credentials
 	Then user is presented with the following message "<message>"
 	
 	Examples:
-	| admin_login_url 				        																													|username 	|password			|message		 |
-	|http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/login			|adm				|adm 					|Invalid username or password.|
-	|http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/login			|admin			| 						|Invalid username or password.|
-	|http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/login			|						|adm 					|Invalid username or password.|
+	| admin_login_url 				        																					|username|password|message		 |
+	|http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/login	|adm		 |adm |Invalid username or password.|
+	|http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/login	|admin	 | 		|Invalid username or password.|
+	|http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/login	|				 |adm |Invalid username or password.|
 
 
 Scenario Outline: AT02_Login to admin page with correct credentials

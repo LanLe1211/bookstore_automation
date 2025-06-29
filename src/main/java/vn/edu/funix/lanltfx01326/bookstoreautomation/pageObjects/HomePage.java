@@ -9,22 +9,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import vn.edu.funix.lanltfx01326.bookstoreautomation.helper.wait.WaitHelper;
-
-import vn.edu.funix.lanltfx01326.bookstoreautomation.helper.wait.WaitHelper;
-
 public class HomePage {
 
 	private WebDriver driver;
 
-	@FindBy(xpath = "//input[@name=\"term\"]")
+	@FindBy(id = "search")
 	WebElement searchInput;
 
-	@FindBy(xpath = "//form[@action='/search']/button[@type=\"submit\"]")
+	@FindBy(id = "search_submit")
 	WebElement searchButton;
 
 	@FindBy(id = "admin_nav_link")
 	WebElement adminButton;
+	
+	@FindBy(id = "home_nav_link")
+	WebElement onlineBookStoreMasterNavigation;
 
 	private String bookContainerXpath = "//div[contains(@class, 'book_container')]";
 
@@ -56,8 +55,8 @@ public class HomePage {
 		return homePageBookContainer;
 	}
 
-	public String getTitleLocator() {
-		return "//a[@class=\"navbar-brand\"]";
+	public String getTitleId() {
+		return "home_nav_link";
 	}
 
 	public String getBookContainerLocator() {

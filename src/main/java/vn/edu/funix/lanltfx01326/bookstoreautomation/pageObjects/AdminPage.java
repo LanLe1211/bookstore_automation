@@ -33,7 +33,6 @@ public class AdminPage {
 	WebElement newBookButtonElement;
 	
 	
-
 	
 	public void clickOrdersButtonToViewOrderDetails() {
 		orderButton.click();

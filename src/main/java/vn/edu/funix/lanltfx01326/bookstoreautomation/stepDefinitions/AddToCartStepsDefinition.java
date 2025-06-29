@@ -13,7 +13,7 @@ import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.HomePage;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.pageObjects.HomePageBookContainer;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
 
-public class AddToCartSteps extends TestBase {
+public class AddToCartStepsDefinition extends TestBase {
 	HomePage homePage;
 	CartPage cartPage;
 
