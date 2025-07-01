@@ -39,13 +39,13 @@ public class HomePage {
 
 	public void submitSearch() {
 		this.searchButton.click();
-
 	}
 
 	public void navigateToAdminPage() {
 		this.adminButton.click();
 	}
 
+	//convert list of web elements into list of custom classes
 	public List<HomePageBookContainer> getBookContainerList() {
 		List<HomePageBookContainer> homePageBookContainer = new ArrayList<>();
 		List<WebElement> bookContainerList = driver.findElements(By.xpath(getBookContainerLocator()));
@@ -67,6 +67,7 @@ public class HomePage {
 		return null;
 	}
 
+	
 	public HomePageBookContainer getBookContainerByBookTitle(String bookTitle) {
 		String findByBookTitleXpath = "//div[contains(@class, 'book_container') and .//h5[contains(@class, 'book_title') and normalize-space() = '"
 				+ bookTitle + "']]";

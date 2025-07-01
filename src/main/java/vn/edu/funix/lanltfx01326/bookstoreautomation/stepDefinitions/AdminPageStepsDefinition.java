@@ -72,7 +72,7 @@ public class AdminPageStepsDefinition extends TestBase {
 	
 	@Then("success message is displayed as {string}")
 	public void success_message_is_displayed_as (String message) {
-		String displayMessage = adminPage.getSuccessMessage();
+		String displayMessage = adminPage.getAddUpdateDeleteBookSuccessMessage();
 		Assert.assertEquals(message, displayMessage);
 	}
 

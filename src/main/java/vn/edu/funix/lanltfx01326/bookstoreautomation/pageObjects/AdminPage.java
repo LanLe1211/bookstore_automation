@@ -33,7 +33,6 @@ public class AdminPage {
 	WebElement newBookButtonElement;
 	
 	
-	
 	public void clickOrdersButtonToViewOrderDetails() {
 		orderButton.click();
 	}
@@ -53,10 +52,9 @@ public class AdminPage {
 
 	public void submitSearch() {
 		this.searchButton.click();
-
 	}
 	
-	public String getSuccessMessage() {
+	public String getAddUpdateDeleteBookSuccessMessage() {
 		WebElement successMsgElement = driver.findElement(By.id("success_mesage"));
 		return successMsgElement.getText();
 	}
@@ -90,6 +88,16 @@ public class AdminPage {
 		
 		String actualAuthor = AdminPageBookTable.getBookAuthorElementFromTableRow(tableRowElement).getText();
 		Assert.assertEquals(actualAuthor, author);
+		
+		String actualIsbn = AdminPageBookTable.getBookIsbnElementFromTableRow(tableRowElement).getText();
+		Assert.assertEquals(actualIsbn, isbn);
+		
+		String actualPublisher = AdminPageBookTable.getBookPublisherElementFromTableRow(tableRowElement).getText();
+		Assert.assertEquals(actualPublisher, publisher);
+		
+		String actualDate = AdminPageBookTable.getBookPublishDateElementFromTableRow(tableRowElement).getText();
+		Assert.assertEquals(actualDate, date);
+			
 	}
 	
 	public String getNoBookMessage() {

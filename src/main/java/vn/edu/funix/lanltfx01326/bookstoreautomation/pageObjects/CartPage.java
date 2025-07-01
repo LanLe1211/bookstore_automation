@@ -18,9 +18,6 @@ public class CartPage {
 	@FindBy(id = "checkout_submit")
 	WebElement cart_checkoutButton;
 
-	@FindBy(xpath = "//form[@action='/search']/button[@type=\"submit\"]")
-	WebElement searchButton;
-
 	@FindBy(xpath = "//div[contains(@class, 'book_container')]")
 	List<WebElement> displayList;
 	
@@ -74,7 +71,5 @@ public class CartPage {
 	
 	public void clickOnDeleteAllCartButton() {
 		this.deleteAllCartButton.click();
-	}
-	
-	
+	}	
 }
