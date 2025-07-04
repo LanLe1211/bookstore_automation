@@ -79,5 +79,11 @@ public class AddToCartStepsDefinition extends TestBase {
 	public void user_clicks_button_checkout_button() {
 		cartPage.submitCheckout();
 	}
+	
+	@Then("the checkout message displays as {string}")
+	public void the_checkout_message_displays_as(String orderSuccessMsgExpected) {
+		String orderSuccessMsgActual = cartPage.getOrderSuccessMsg();
+		Assert.assertEquals(orderSuccessMsgActual, orderSuccessMsgExpected);
+	}
 
 }

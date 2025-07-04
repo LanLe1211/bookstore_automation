@@ -11,7 +11,7 @@ public class CartPageBookContainer {
 	}
 	
 	public String getBookTitle() {
-		return bookContainerElement.findElement(By.className("book_title")).getText();
+		return bookContainerElement.findElement(By.className("book_name")).getText();
 	}
 	
 	public String getBookAuthor() {

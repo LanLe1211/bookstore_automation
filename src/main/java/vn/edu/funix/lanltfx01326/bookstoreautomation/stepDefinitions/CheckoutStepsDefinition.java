@@ -43,10 +43,4 @@ public class CheckoutStepsDefinition extends TestBase {
 		checkoutPage.clickCheckoutOrder();
 	}
 
-	@Then("the checkout message displays as {string}")
-	public void the_checkout_message_displays_as(String orderSuccessMsgExpected) {
-		String orderSuccessMsgActual = checkoutPage.getOrderSuccessMsg();
-		Assert.assertEquals(orderSuccessMsgActual, orderSuccessMsgExpected);
-	}
-
 }

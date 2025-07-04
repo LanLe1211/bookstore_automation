@@ -50,7 +50,4 @@ public class AdminLoginStepsDefinition extends TestBase {
 		loginPage.enterPassword(password);
 		loginPage.clickLoginButton();
 	}
-	
-	
-
 }

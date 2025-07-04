@@ -27,7 +27,6 @@ public class CartPage {
 	@FindBy(id="checkout_delete_all")
 	WebElement deleteAllCartButton;
 	
-
 	public CartPage(WebDriver driver) {
 		this.driver = driver;
 		this.waitHelper = new WaitHelper(driver);
@@ -72,4 +71,9 @@ public class CartPage {
 	public void clickOnDeleteAllCartButton() {
 		this.deleteAllCartButton.click();
 	}	
+	
+	public String getOrderSuccessMsg() {
+		WebElement orderSuccessMessage = driver.findElement(By.id("checkout_success_message"));
+		return orderSuccessMessage.getText();	
+	}
 }

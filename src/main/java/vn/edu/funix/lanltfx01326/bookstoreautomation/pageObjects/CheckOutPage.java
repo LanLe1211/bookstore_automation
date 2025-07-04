@@ -13,10 +13,10 @@ public class CheckOutPage {
 	private WebDriver driver;
 
 	@FindBy(className = "cart_book_title")
-	List<WebElement> cartBookTitleList;
+	List<WebElement> checkoutPageBookTitleList;
 
 	@FindBy(className = "cart_book_price")
-	List<WebElement> cartBookPriceList;
+	List<WebElement> checkoutPageBookPriceList;
 
 	@FindBy(id = "shipping_cost")
 	WebElement shippingCostElement;
@@ -59,13 +59,13 @@ public class CheckOutPage {
 
 	public boolean isBookDetailPresented(String title, Double price) {
 		int titleIndex = -1;
-		for (WebElement cartBookTitleEle : cartBookTitleList) {
+		for (WebElement cartBookTitleElement : checkoutPageBookTitleList) {
 			titleIndex++;
-			if (title.equals(cartBookTitleEle.getText())) {
+			if (title.equals(cartBookTitleElement.getText())) {
 				break;
 			}
 		}
-		String sameRowPriceText = cartBookPriceList.get(titleIndex).getText();
+		String sameRowPriceText = checkoutPageBookPriceList.get(titleIndex).getText();
 		if (price.equals(Double.valueOf(sameRowPriceText))) {
 			return true;
 		}
@@ -95,10 +95,7 @@ public class CheckOutPage {
 		placeOrderButton.click();
 	}
 	
-	public String getOrderSuccessMsg() {
-		WebElement orderSuccessMessage = driver.findElement(By.id("checkout_success_message"));
-		return orderSuccessMessage.getText();	
-	}
+	
 	
 	
 	

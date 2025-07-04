@@ -25,16 +25,7 @@ public class HomePageStepsDefinition extends TestBase {
 		driver.get(string);
 		homePage = new HomePage(driver);
 		waitHelper.WaitForElementVisibleById(homePage.getTitleId(), 10, 100);
-	}
-	
-	@Then("homepage title is {string}")
-	public void home_page_title_is(String string) {
-		WebDriver driver = getCurrentWebDriver();
-		waitHelper.WaitForElementVisibleById(homePage.getTitleId(), 10, 100);
-		WebElement pageTitle = driver.findElement(By.id(homePage.getTitleId()));
-		Assert.assertEquals(string, pageTitle.getText()); 
-	}
-	
+	}	
 	
 	//Search books
 	@When("user enters keyword as {string}")

@@ -38,8 +38,7 @@ public class OrdersDetailsPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void orderDetailsAvailability(String name, String sur, String country, String street, String city,
-			String postalCode, String phone, String email) {
+	public void orderDetailsAvailability(String name, String sur, String country, String street, String city, String postalCode, String phone, String email) {
 		String actualFullNameDetail = customerFullNameElement.getText();
 		String actualFullAddressDetail = customerAddressElement.getText();
 		String actualPersonalInfoDetail = customerPhoneAndEmailElement.getText();
@@ -57,9 +56,9 @@ public class OrdersDetailsPage {
 
 	public boolean isOrderedBookTitleAndPricePresented(String title, Double price) {
 		int titleIndex = -1;
-		for (WebElement cartBookTitleEle : bookNameList) {
+		for (WebElement orderDetailsBookTitleElement : bookNameList) {
 			titleIndex++;
-			if (title.equals(cartBookTitleEle.getText())) {
+			if (title.equals(orderDetailsBookTitleElement.getText())) {
 				break;
 			}
 		}
