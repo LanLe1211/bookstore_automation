@@ -3,9 +3,7 @@ package vn.edu.funix.lanltfx01326.bookstoreautomation.stepDefinitions;
 import java.util.Arrays;
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
@@ -18,7 +16,6 @@ import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
 public class HomePageStepsDefinition extends TestBase {
 	private HomePage homePage;
 
-	
 	@Given("User is on bookstore homepage {string}")
 	public void user_is_on_home_page(String string) {
 		WebDriver driver = getCurrentWebDriver();

@@ -96,8 +96,7 @@ public class AdminPage {
 		Assert.assertEquals(actualPublisher, publisher);
 		
 		String actualDate = AdminPageBookTable.getBookPublishDateElementFromTableRow(tableRowElement).getText();
-		Assert.assertEquals(actualDate, date);
-			
+		Assert.assertEquals(actualDate, date);	
 	}
 	
 	public String getNoBookMessage() {

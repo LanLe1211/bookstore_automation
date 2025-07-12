@@ -3,6 +3,9 @@ Background:
     Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/"
 
 Scenario Outline: AT14A+AT14B_Check out by user when there is one book in cart and check order details by admin
+ When user enters keyword as "<title>"
+ Then user is directed to search page as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/search"
+ Then user sees search result contain "<title>"
  When user clicks button Add To Cart the book having title as "<title>"
  Then user is directed to cartpage as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/cart"
  When user clicks button Checkout button 
@@ -37,4 +40,5 @@ Scenario Outline: AT14A+AT14B_Check out by user when there is one book in cart a
 |title   |price|cost |name|sur|country|street          |city     |postal|phone     |email         |
 |Hannibal|66.60|72.60 $|Lan |Le |US     |32 Bentley Chase|Buford   |30519 |4255227287|lan@gmail.com |
 |Twilight|38.00|44.00 $|Lily |Nguyen |Canada     |118 Gravel Ridge Trail|Kitchener   |N2J0E8 |2267528282|lily@gmail.com |
+
  

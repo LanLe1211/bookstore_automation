@@ -40,9 +40,8 @@ public class BookFormPage {
 	@FindBy(id = "book_form_submit")
 	WebElement newBookFormSubmitButtonElement;
 
-	public void filNewBookForm(String bookname, String price, String author, String isbn, String publisher,
-			String date) {
-		newBookNameInputElement.clear();
+	public void filNewBookForm(String bookname, String price, String author, String isbn, String publisher, String date) {
+ 		newBookNameInputElement.clear();
 		newBookNameInputElement.sendKeys(bookname);
 		newBookPriceInputElement.clear();
 		newBookPriceInputElement.sendKeys(price);
@@ -55,7 +54,6 @@ public class BookFormPage {
 		newBookPublishedDateInputElement.clear();
 		newBookPublishedDateInputElement.sendKeys(date);
 	}
-
 	
 	
 	public void clickSaveNewBookButton() {

@@ -10,5 +10,6 @@ Feature: Search books with available results
     
     Examples:
     |keyword          |result_count|title    |                     
-    |The              |4          |The Lord of the Rings,The Da Vinci Code,The Hunger Games,The Last Olympian|
+    |The              |4           |The Lord of the Rings,The Da Vinci Code,The Hunger Games,The Last Olympian|
     |Harry            |1           |Harry Potter and the Half-Blood Prince|
+    |Grey             |1           |Fifty Shades of Grey|
