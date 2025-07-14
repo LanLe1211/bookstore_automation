@@ -25,6 +25,7 @@ public class HomePage {
 	@FindBy(id = "home_nav_link")
 	WebElement onlineBookStoreMasterNavigation;
 
+	//for all book containers
 	private String bookContainerXpath = "//div[contains(@class, 'book_container')]";
 
 	public HomePage(WebDriver driver) {
@@ -45,14 +46,14 @@ public class HomePage {
 		this.adminButton.click();
 	}
 
-	//convert list of web elements into list of custom classes
+	//convert list of web elements into list of custom classes; return the number of book containers on screen
 	public List<HomePageBookContainer> getBookContainerList() {
-		List<HomePageBookContainer> homePageBookContainer = new ArrayList<>();
+		List<HomePageBookContainer> homePageBookContainerList = new ArrayList<>();
 		List<WebElement> bookContainerList = driver.findElements(By.xpath(getBookContainerLocator()));
 		for (WebElement element : bookContainerList) {
-			homePageBookContainer.add(new HomePageBookContainer(element));
+			homePageBookContainerList.add(new HomePageBookContainer(element));
 		}
-		return homePageBookContainer;
+		return homePageBookContainerList;
 	}
 
 	public String getTitleId() {

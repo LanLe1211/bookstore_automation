@@ -12,7 +12,7 @@ Scenario Outline: AT14A+AT14B_Check out by user when there is one book in cart a
  Then user is directed to checkout page as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/checkout?"
  And book title is seen in checkout page as "<title>" and price as <price>
  And delivery cost is seen in checkout page as "6.00 $"
- And total cos is seen in checkout as "<cost>"
+ And total cost is seen in checkout as "<cost>"
  When user enters name as "<name>" surname as "<sur>" country region as "<country>" street as "<street>" city as "<city>" postal code as "<postal>" phone as "<phone>" email as "<email>"
  And user clicks on Place Order button
  Then user is directed to cartpage as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/cart"

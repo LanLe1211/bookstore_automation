@@ -18,8 +18,7 @@ public class CheckoutStepsDefinition extends TestBase {
 
 	@Then("book title is seen in checkout page as {string} and price as {double}")
 	public void booktitle_is_seen_in_checkout_page_as_and_price_as(String title, Double price) {
-		Assert.assertTrue(checkoutPage.isBookDetailPresented(title, price),
-				"Expected book is not presented in check out page");
+		Assert.assertTrue(checkoutPage.isBookDetailPresented(title, price), "Expected book is not presented in check out page");
 	}
 
 	@Then("delivery cost is seen in checkout page as {string}")
@@ -27,13 +26,13 @@ public class CheckoutStepsDefinition extends TestBase {
 		Assert.assertEquals(checkoutPage.getShippingCostText(), deliveryCost);
 	}
 
-	@Then("total cos is seen in checkout as {string}")
+	@Then("total cost is seen in checkout as {string}")
 	public void total_cos_is_seen_in_checkout_as(String string) {
 		Assert.assertEquals(checkoutPage.getTotalPriceText(), string);
 	}
 
 	@When("user enters name as {string} surname as {string} country region as {string} street as {string} city as {string} postal code as {string} phone as {string} email as {string}")
-	public void user_enters_name_as_surname_as_country_region_as_street_as_city_as_buford_postal_code_as_phone_as_email_as_lan_gmail_com(
+	public void user_enters_name_as_surname_as_country_region_as_street_as_city_as_postal_code_as_phone_as_email_as(
 			String name, String surname, String country, String street, String city, String postalCode, String phone,String email) {
 		checkoutPage.fillCheckOutForm(name, surname, country, street, city, postalCode, phone, email);
 	}

@@ -41,8 +41,9 @@ public class HomePageStepsDefinition extends TestBase {
 	public void user_see_search_result_contain_string(String titleListString) throws InterruptedException {
 		List<String> titleList = Arrays.asList(titleListString.split("\\s*,\\s*"));
 		List<HomePageBookContainer> bookContainerList = homePage.getBookContainerList();
-		for(HomePageBookContainer book:bookContainerList) {
-			Assert.assertListContainsObject(titleList, book.getBookTitle(), null);
+		//compare for title of each book container on screen
+		for(HomePageBookContainer bookContainer :bookContainerList) {
+			Assert.assertListContainsObject(titleList, bookContainer.getBookTitle(), null);
 		}
 	}
 	

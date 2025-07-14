@@ -38,7 +38,7 @@ Background:
  
    Examples:     
   |booktitle1 |booktitle2|
-  |Twilight           |Hannibal             |
+  |Twilight   |Hannibal             |
   |The Hunger Games  |Fifty Shades of Grey |
  
 

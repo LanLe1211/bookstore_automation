@@ -48,7 +48,8 @@ public class CartPage {
 	public CartPageBookContainer getCartPageBookContainerByBookTitle(String bookTitle) {
 		String findByBookTitleXpath = "//div[contains(@class, 'book_container') and .//h5[contains(@class, 'book_name') and normalize-space() = '"
 				+ bookTitle + "']]";
-
+/* 	//div[contains(@class, 'book_container') and .//h5[contains(@class, 'book_name') and normalize-space() = 'Hannibal']]    */
+		
 		WebElement cartPageBookContainerWebElement = driver.findElement(By.xpath(findByBookTitleXpath));
 		if (cartPageBookContainerWebElement != null) {
 			CartPageBookContainer cartPageBookContainer = new CartPageBookContainer(cartPageBookContainerWebElement);
