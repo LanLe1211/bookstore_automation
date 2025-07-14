@@ -10,7 +10,7 @@ import io.cucumber.testng.CucumberOptions;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
 
 @CucumberOptions(
-		features = "src/test/resources/OnlineBookstoreTestingFeatures", 
+		features = "src/test/resources/OnlineBookstoreTestingFeatures/cart_checkoutandadminorderdetails.feature", 
 		glue = {"vn/edu/funix/lanltfx01326/bookstoreautomation/stepDefinitions" }, 
 		plugin = { "pretty",
 				"html:target/cucumber-html-reports/report.html",
