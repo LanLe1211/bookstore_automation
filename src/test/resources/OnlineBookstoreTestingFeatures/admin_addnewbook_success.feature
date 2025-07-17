@@ -22,7 +22,7 @@ Scenario Outline: AT05_Add new book successfully
 Examples:
   |bookname  |price|author  |isbn      |publisher    |date    |
   |Baby Shark|15   |PingFong|4289376859|HarperCollins|2021-08-08|  
-  #|Atomic Habits|24|James Clear|0735211299|Avery    |2022-05-05| 
+  |Atomic Habits|24|James Clear|0735211299|Avery    |2022-05-05| 
   
   
   

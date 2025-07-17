@@ -3,18 +3,18 @@ Background:
     Given User is on bookstore homepage "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/"
   	
  Scenario Outline: AT12A+AT12B_Add and delete 1 book from cart
- When user enters keyword as "<booktitle>"
+ When user enters keyword as "<keyword>"
  Then user is directed to search page as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/search"
- Then user sees search result contain "<booktitle>"
+ Then user sees search result contain "<searchresult>"
  When user clicks button Add To Cart the book having title as "<booktitle>"
  Then user is directed to cartpage as "http://bookstore-uat-env.eba-26p4nuxx.us-east-2.elasticbeanstalk.com/cart"
  And book title is seen in cart page as "<booktitle>"
  When user clicks remove button of the book with title as "<booktitle>"
  Then user sees success message as "Your basket is currently empty."
  Examples:     
-  |booktitle    |
-  |The Last Olympian|
-  |Life of Pi|
+  |keyword|searchresult|booktitle    |
+  |The|The Lord of the Rings,The Da Vinci Code,The Hunger Games,The Last Olympian|The Last Olympian|
+  |Pi|Life of Pi|Life of Pi|
  
 
   	
