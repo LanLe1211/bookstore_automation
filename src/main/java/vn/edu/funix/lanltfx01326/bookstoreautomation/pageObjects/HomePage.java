@@ -72,6 +72,9 @@ public class HomePage {
 	public HomePageBookContainer getBookContainerByBookTitle(String bookTitle) {
 		String findByBookTitleXpath = "//div[contains(@class, 'book_container') and .//h5[contains(@class, 'book_title') and normalize-space() = '"
 				+ bookTitle + "']]";
+	/* 	//div[contains(@class, 'book_container') and .//h5[contains(@class, 'book_title') and normalize-space() = 'Hannibal']]    */
+		/*  //div[contains(@class,'book_container') and .//h5[contains(@class, 'book_title') and text()='Hannibal']] */
+
 
 		WebElement bookContainerWebElement = driver.findElement(By.xpath(findByBookTitleXpath));
 		if (bookContainerWebElement != null) {
