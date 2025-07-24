@@ -41,7 +41,7 @@ public class AdminLoginStepsDefinition extends TestBase {
 	@Then("user is presented with the following message \"([^\"]*)\"$")
 	public void user_is_presented_with_the_following_message_as(String message) throws Throwable {
 		String displayMessage = loginPage.getMessage();
-		Assert.assertEquals(message, displayMessage);
+		Assert.assertEquals(displayMessage,message);
 	}
 
 	@When("admin logs in with username as {string} and password as {string}")

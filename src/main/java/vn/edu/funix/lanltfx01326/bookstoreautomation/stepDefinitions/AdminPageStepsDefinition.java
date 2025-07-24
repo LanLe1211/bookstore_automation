@@ -109,10 +109,6 @@ public class AdminPageStepsDefinition extends TestBase {
 		for(WebElement bookRowElement :bookRowElementList ) {
 			String bookName = AdminPageBookTable.getBookNameElementFromTableRow(bookRowElement).getText();
 			Assert.assertListContainsObject(titleList, bookName, null);
-		}
-	    
+		}    
 	}
-	
-	
-
 }
