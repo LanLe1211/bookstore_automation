@@ -15,7 +15,7 @@ import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
 		plugin = { "pretty",
 				"html:target/cucumber-html-reports/report.html",
 				"json:target/cucumber-reports/CucumberTestReport.json" })
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class SystemTestRunner extends AbstractTestNGCucumberTests {
 
 	@BeforeClass(alwaysRun = true)
 	@Override
