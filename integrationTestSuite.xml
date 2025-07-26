@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Integration Test Suite">
-    <test name="Book Store" preserve-order="true">
-        <classes>
-            <class name="vn.edu.funix.lanltfx01326.bookstoreautomation.testRunner.IntegrationTestRunner"/>
-        </classes>
-    </test>
-</suite>

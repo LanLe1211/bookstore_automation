@@ -7,9 +7,9 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn test -Dsurefire.suiteXmlFiles=systemTestSuite.xml
+      - mvn test
 reports: #New
-  SystemCucumberTestReport: # CodeBuild will create a report group called "SurefireReports".
+  CucumberTestReport: # CodeBuild will create a report group called "SurefireReports".
     files: #Store all of the files
       - '**/CucumberTestReport.json'
     base-directory: 'target/cucumber-reports'

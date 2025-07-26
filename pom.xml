@@ -92,7 +92,7 @@
         <configuration>
           <testFailureIgnore>false</testFailureIgnore>
           <suiteXmlFiles>
-            <suiteXmlFile>systemTestSuite.xml</suiteXmlFile>
+            <suiteXmlFile>testNG.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>

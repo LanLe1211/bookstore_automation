@@ -10,12 +10,12 @@ import io.cucumber.testng.CucumberOptions;
 import vn.edu.funix.lanltfx01326.bookstoreautomation.testBase.TestBase;
 
 @CucumberOptions(
-		features = "src/test/resources/IntegrationTestFeatures", 
+		features = "src/test/resources/OnlineBookstoreTestingFeatures", 
 		glue = {"vn/edu/funix/lanltfx01326/bookstoreautomation/stepDefinitions" }, 
 		plugin = { "pretty",
 				"html:target/cucumber-html-reports/report.html",
 				"json:target/cucumber-reports/CucumberTestReport.json" })
-public class IntegrationTestRunner extends AbstractTestNGCucumberTests {
+public class TestRunner extends AbstractTestNGCucumberTests {
 
 	@BeforeClass(alwaysRun = true)
 	@Override
