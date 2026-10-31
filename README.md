@@ -1,6 +1,5 @@
-
-Full implementation document: 
-
+Here comes full implementation document: 
+ 
 
 
 
